@@ -9,7 +9,9 @@ import toast from "react-hot-toast";
 import Loader from "@/components/Loader";
 
 
+
 export default  function Dashboard() {
+
 
   const [loading, setLoading] = useState(false);
   // const cookieStore = await cookies();
@@ -182,7 +184,7 @@ useEffect(() => {
       {/* Orders Section */}
       {activeTab === "orders" && (
         <>
-          <div className="mb-6 flex justify-end">
+          <div className="mb-6 flex justify-center">
             <select
               value={orderFilter}
              onChange={(e) => {
@@ -249,7 +251,7 @@ useEffect(() => {
       {/* Enquiries Section */}
       {activeTab === "enquiries" && (
         <>
-          <div className="mb-6 flex justify-end">
+          <div className="mb-6 flex justify-center">
             <select
               value={enquiryFilter}
               onChange={(e) => {

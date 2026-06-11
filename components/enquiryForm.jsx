@@ -121,11 +121,11 @@ if (data.success) {
             Submit Enquiry
           </button>
         </form>
-        <br />
+
         <div className="">
             <a href="tel:+917760576768" className="mt-6 flex flex-wrap items-center justify-center gap-6 text-center  text-gray-700 hover:text-red-600 transition">
-                   <span className='text-4xl'>or click here to call us directly</span>
-                    <span className='text-4xl'>📞</span>
+                   <span className='text-xl'>or click here to call us directly</span>
+                    <span className='text-xl'>📞</span>
                     <span className='text-black text-lg'>+91 7760576768</span>
                 </a>
         </div>
