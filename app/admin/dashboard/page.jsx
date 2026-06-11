@@ -144,9 +144,11 @@ const [filteredOrders, setFilteredOrders] = useState([]);
 
 const [filteredEnquiries, setFilteredEnquiries] = useState([]);
 
-useEffect(() => {
-  fetchOrders();
-  fetchEnquiries();
+useEffect(async () => {
+  setLoading(true);
+  await fetchOrders();
+  await fetchEnquiries();
+  setLoading(false);
 }, []);
 
   return (

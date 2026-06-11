@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import toast from "react-hot-toast";
+import Loader from "@/components/Loader";
 
 export default function OrderForm() {
+    const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -21,7 +23,7 @@ export default function OrderForm() {
 
   const handleSubmit = async (e) => {
   e.preventDefault();
-
+  setLoading(true);
   try {
     const res = await fetch("/api/orders", {
       method: "POST",
@@ -49,13 +51,15 @@ export default function OrderForm() {
   } catch (error) {
     console.error(error);
     toast.error("Failed to submit order");
+  }finally {
+    setLoading(false);
   }
  };
 
   return (
     <section id="order-form"
   className="min-h-screen bg-gray-100 flex items-center justify-center p-6">
-
+    {loading && <Loader />}
     <div className="min-h-screen  w-full max-w-xl flex items-center justify-center bg-gray-100 p-4">
       <form
         onSubmit={handleSubmit}

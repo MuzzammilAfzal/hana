@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import toast from "react-hot-toast";
+import Loader from "@/components/Loader";
 
 export default function EnquiryForm() {
+    const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -19,7 +21,7 @@ export default function EnquiryForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setLoading(true);
     console.log(formData);
 
     const res = await fetch("/api/enquiry", {
@@ -40,8 +42,10 @@ if (data.success) {
     phone: "",
     message: "",
   });
+  setLoading(false);
 } else {
   toast.error(data.message);
+  setLoading(false);
 }
 
     setFormData({
@@ -49,10 +53,12 @@ if (data.success) {
       phone: "",
       message: "",
     });
+    setLoading(false);
   };
 
   return (
     <section id="enquiry-form" className="flex items-center justify-center bg-gray-100 px-4 py-12">
+      {loading && <Loader />}
       <div className="w-full max-w-xl rounded-2xl bg-white p-8 shadow-lg">
         <h2 className="mb-2 text-center text-3xl font-bold text-gray-800">
           Enquiry Form
