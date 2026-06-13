@@ -101,12 +101,12 @@ export default function OrderForm() {
 
         <div>
           <label className="block mb-1 font-medium">
-            Shop Name
+            Shop Name / Flat Number
           </label>
           <input
             type="text"
             name="shopName"
-            placeholder="Enter shop name"
+            placeholder="Enter shop name or flat number"
             value={formData.shopName}
             onChange={handleChange}
             required
@@ -116,12 +116,12 @@ export default function OrderForm() {
 
         <div>
           <label className="block mb-1 font-medium">
-           Shop Address
+           Shop Address / Flat Address
           </label>
           <textarea
             name="address"
             rows={3}
-            placeholder="Enter address"
+            placeholder="Enter shop address or flat address"
             value={formData.address}
             onChange={handleChange}
             required
